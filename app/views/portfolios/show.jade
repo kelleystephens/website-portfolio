@@ -1,0 +1,11 @@
+extends ../shared/template
+
+block content
+  .showtitle= project.title
+  each photo in photos
+    img.showpic(src=photo)
+  .description= project.description
+  .git= project.git
+  .app= project.app
+  .date= project.date
+  .tags= project.tags
