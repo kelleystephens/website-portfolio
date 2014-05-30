@@ -1,11 +1,34 @@
 extends ../shared/template
 
 block content
+
   .showtitle= project.title
-  each photo in photos
-    img.showpic(src=photo)
-  .description= project.description
-  .git= project.git
-  .app= project.app
-  .date= project.date
-  .tags= project.tags
+  .fotorama(data-nav='thumbs', data-transition='crossfade', data-loop='true')
+      each photo in photos
+        img.showpic(src= photo.path)
+
+  .itemsContainer
+    .description= project.description
+    .git= project.git
+    .app= project.app
+    .date= moment(project.date).format('MM/DD/YYYY')
+    .tags= project.tags
+    button.show Picture Options
+    .hidden(style= 'display: none')
+      form(action='/portfolio/add/#{project._id}/photo', method='post', enctype='multipart/form-data')
+        input(type='file', name='photo', multiple=true)
+        button Upload
+      each photo in photos
+        .eachPhoto
+          form(action='/portfolio/delete/#{project._id}/photo', method='POST')
+            input(type='hidden', name='_method', value='DELETE')
+            input(type='hidden', name='photo', value='#{photo.path}')
+            img.deletepic(src= photo.path)
+            button x
+          form(action='/portfolio/#{project._id}/photo/primary', method='POST')
+            input(type='hidden', name='_method', value='PUT')
+            input(type='hidden', name='photo', value='#{photo.path}')
+            button Set Primary
+
+block scripts
+  script(src='/js/vendor/fotorama.js')

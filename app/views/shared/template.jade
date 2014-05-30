@@ -5,29 +5,46 @@ html
     title= title
     link(href='/css/normalize.css', rel='stylesheet')
     link(href='/css/buttons.css', rel='stylesheet')
+    link(href='/css/fotorama.css', rel='stylesheet')
+    link(rel='stylesheet' href='/menumorph/css/demo.css')
+    link(rel='stylesheet' href='/menumorph/css/component.css')
+    link(rel='stylesheet' href='/menumorph/css/content.css')
     link(href='/less/app.css', rel='stylesheet')
   body
-    nav
-      ul
-        li: a(href='/') Home
-        li: a(href='/about') About
-        li: a(href='/resume') Resume
-        li: a(href='/portfolio') Portfolio
-        li: a(href='/contact') Contact
-        if(user)
-          li: a(href='/portfolio/new') New Project
-          li: a(href='/logout')= user.email
+    #container.container
+      block content
 
-    block content
+    .morph-button.morph-button-sidebar.morph-button-fixed
+      button
+        span.icon.icon-cog Settings Menu
+      .morph-content
+        div
+          .content-style-sidebar
+            span.icon.icon-close Close the overlay
+            h2 Navigation
+            ul
+              li: a.icon.icon-camera(href='/') Home
+              li: a.icon.icon-server(href='/about') About
+              li: a.icon.icon-heart(href='/resume') Resume
+              li: a.icon.icon-zoom-in(href='/portfolio') Portfolio
+              li: a.icon.icon-microphone(href='/contact') Contact
+              if(user)
+                li: a.icon.icon-cloud(href='/portfolio/new') New Project
+                li: a.icon.icon-user(href='/logout')= user.email
 
     script(src='/js/vendor/jquery-2.1.1.js')
     script(src='/js/vendor/lodash-2.4.1.js')
     script(src='/js/vendor/moment-2.6.0.js')
     script(src='/js/vendor/buttons.js')
     script(src='/js/vendor/traceur.js')
+    script(src='/menumorph/js/modernizr.custom.js')
+    script(src='/menumorph/js/classie.js')
+    script(src='/menumorph/js/uiMorphingButton_fixed.js')
     script(src='/socket.io/socket.io.js')
     script(src='/js/es5/main.js')
     script(src='/js/es6/compiled/main.js')
+    script(src='/js/es6/compiled/project.js')
     script(src='/js/es6/compiled/sockets.js')
+
 
     block scripts

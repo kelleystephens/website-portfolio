@@ -2,13 +2,21 @@ extends ../shared/template
 
 block content
   h1 Portfolio
-
-  //- each project in projects
-  //-   .title= project.title
-  //-   .description= project.description
-  //-   .git= project.git
-  //-   .app= project.app
-  //-   .date= project.date
-  //-   .tags= project.tags
-  //-   .photos= project.photos
-  //-   .id= project.userId
+  #allProjects
+    each project in projects
+      .projectContain
+        a.title(href='/portfolio/#{project._id}' data-id='#{project._id}')= project.title
+        .description= project.description
+        .git= project.git
+        .app= project.app
+        -var date = moment(project.date).format('MM/DD/YYYY')
+        .date(data-date='#{date}')= date
+        .tags= project.tags
+        each photo in project.photos
+          if(photo.isPrimary)
+            img.photo(src='#{photo.path}')
+        if(user && user.isOwner(project.userId))
+          form(action='/portfolio/delete/#{project._id}', method='POST',)
+            input(type='hidden', name='_method', value='DELETE')
+            button.delete.icon.icon-cross x
+          button.edit Edit

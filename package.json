@@ -26,7 +26,9 @@
     "bcrypt":          "*",
     "cookie-session":  "*",
     "cookies":         "*",
-    "multiparty":      "*"
+    "multiparty":      "*",
+    "rimraf":          "*"
+
   },
   "devDependencies": {
     "grunt":                "*",
