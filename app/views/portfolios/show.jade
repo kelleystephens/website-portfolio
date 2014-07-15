@@ -3,7 +3,7 @@ extends ../shared/template
 block content
 
   .showtitle= project.title
-  .fotorama(data-nav='thumbs', data-transition='crossfade', data-loop='true')
+  .fotorama(data-click='true', data-swipe='true', data-nav='thumbs', data-transition='slide', data-clicktransition='crossfade', data-loop='true')
       each photo in photos
         img.showpic(src= photo.path)
 
@@ -13,22 +13,24 @@ block content
     .app= project.app
     .date= moment(project.date).format('MM/DD/YYYY')
     .tags= project.tags
-    button.show Picture Options
-    .hidden(style= 'display: none')
-      form(action='/portfolio/add/#{project._id}/photo', method='post', enctype='multipart/form-data')
-        input(type='file', name='photo', multiple=true)
-        button Upload
-      each photo in photos
-        .eachPhoto
-          form(action='/portfolio/delete/#{project._id}/photo', method='POST')
-            input(type='hidden', name='_method', value='DELETE')
-            input(type='hidden', name='photo', value='#{photo.path}')
-            img.deletepic(src= photo.path)
-            button x
-          form(action='/portfolio/#{project._id}/photo/primary', method='POST')
-            input(type='hidden', name='_method', value='PUT')
-            input(type='hidden', name='photo', value='#{photo.path}')
-            button Set Primary
+    if(user && project.isOwner(user))
+      button.show Picture Options
+      .hidden(style= 'display: none')
+        form(action='/portfolio/add/#{project._id}/photo', method='post', enctype='multipart/form-data')
+          input(type='file', name='photo', multiple=true)
+          button Upload
+        each photo in photos
+          .eachPhoto
+            form(action='/portfolio/delete/#{project._id}/photo', method='POST')
+              input(type='hidden', name='_method', value='DELETE')
+              input(type='hidden', name='photo', value='#{photo.path}')
+              img.deletepic(src= photo.path)
+              button x
+            if(!photo.isPrimary)
+              form(action='/portfolio/#{project._id}/photo/primary', method='POST')
+                input(type='hidden', name='_method', value='PUT')
+                input(type='hidden', name='photo', value='#{photo.path}')
+                button Set Primary
 
 block scripts
   script(src='/js/vendor/fotorama.js')

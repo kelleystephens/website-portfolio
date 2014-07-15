@@ -2,11 +2,11 @@ doctype html
 html
   head
     meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
     title= title
     link(href='/css/normalize.css', rel='stylesheet')
-    link(href='/css/buttons.css', rel='stylesheet')
-    link(href='/css/fotorama.css', rel='stylesheet')
-    link(rel='stylesheet' href='/menumorph/css/demo.css')
+    link(rel='stylesheet' href='http://fotorama.s3.amazonaws.com/4.5.2/fotorama.css')
+    link(rel='stylesheet' href='http://yui.yahooapis.com/combo?pure/0.5.0/base-min.css&pure/0.5.0/grids-min.css&pure/0.5.0/grids-responsive-min.css')
     link(rel='stylesheet' href='/menumorph/css/component.css')
     link(rel='stylesheet' href='/menumorph/css/content.css')
     link(href='/less/app.css', rel='stylesheet')
@@ -16,18 +16,18 @@ html
 
     .morph-button.morph-button-sidebar.morph-button-fixed
       button
-        span.icon.icon-cog Settings Menu
+        span.icon.icon-list Settings Menu
       .morph-content
         div
           .content-style-sidebar
             span.icon.icon-close Close the overlay
             h2 Navigation
             ul
-              li: a.icon.icon-camera(href='/') Home
-              li: a.icon.icon-server(href='/about') About
-              li: a.icon.icon-heart(href='/resume') Resume
-              li: a.icon.icon-zoom-in(href='/portfolio') Portfolio
-              li: a.icon.icon-microphone(href='/contact') Contact
+              li: a.icon.icon-home(href='/') Home
+              li: a.icon.icon-user(href='/about') About
+              li: a.icon.icon-profile(href='/resume') Resume
+              li: a.icon.icon-stack(href='/portfolio') Portfolio
+              li: a.icon.icon-phone(href='/contact') Contact
               if(user)
                 li: a.icon.icon-cloud(href='/portfolio/new') New Project
                 li: a.icon.icon-user(href='/logout')= user.email
@@ -35,16 +35,13 @@ html
     script(src='/js/vendor/jquery-2.1.1.js')
     script(src='/js/vendor/lodash-2.4.1.js')
     script(src='/js/vendor/moment-2.6.0.js')
-    script(src='/js/vendor/buttons.js')
     script(src='/js/vendor/traceur.js')
+    script(src='http://fotorama.s3.amazonaws.com/4.5.2/fotorama.js')
     script(src='/menumorph/js/modernizr.custom.js')
     script(src='/menumorph/js/classie.js')
     script(src='/menumorph/js/uiMorphingButton_fixed.js')
-    script(src='/socket.io/socket.io.js')
-    script(src='/js/es5/main.js')
     script(src='/js/es6/compiled/main.js')
     script(src='/js/es6/compiled/project.js')
-    script(src='/js/es6/compiled/sockets.js')
 
 
     block scripts

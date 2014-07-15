@@ -1,10 +1,132 @@
-nav{
-  li{
-    display: inline-block;
-    list-style: none;
-    margin: 10px;
+@import url(http://fonts.googleapis.com/css?family=Lato);
+@import url(http://fonts.googleapis.com/css?family=Calligraffitti);
+@import url(http://fonts.googleapis.com/css?family=Bad+Script);
+
+html{
+  background: #486966;
+}
+
+// Home Page Styling
+
+h1.name{
+  font-family: 'Lato', sans-serif;
+  font-size: 2.7em;
+  font-weight: 300;
+  color: #DDDCD8;
+  text-shadow: 3px 1px 2px rgba(2, 2, 2, 0.4)
+}
+
+.pure-img{
+  background-size: cover;
+  height: 42vh;
+  -webkit-transition: all 2s ease;
+  -moz-transition: all 2s ease;
+  -o-transition: all 2s ease;
+  -ms-transition: all 2s ease;
+  transition: all 2s ease;
+  span{
+    opacity: 0;
+    line-height: 50vh;
+    vertical-align: middle;
+    font-size: 3em;
+    color: #fff;
+    -webkit-transition: opacity 2s ease;
+    -moz-transition: opacity 2s ease;
+    -o-transition: opacity 2s ease;
+    -ms-transition: opacity 2s ease;
+    transition: opacity 2s ease;
   }
 }
+
+.pure-img:hover > span{
+  opacity: 1;
+}
+
+.indexImg1{
+  background-image: url('https://splashbase.s3.amazonaws.com/unsplash/large/1fhgIjZ');
+}
+
+.indexImg2{
+  background-image: url('https://s3.amazonaws.com/ooomf-com-files/TIDqBLgQw6IUt5ZHKS0f_11891558035_eafdf53bf0_o.jpg');
+}
+
+.indexImg3{
+  background-image: url('https://s3.amazonaws.com/ooomf-com-files/5OctZbi8TOKC4NmbmeOH_Caroline%20Gutman-4677.jpg');
+  background-position: center;
+}
+
+.indexImg4{
+  background-image: url('http://666a658c624a3c03a6b2-25cda059d975d2f318c03e90bcf17c40.r92.cf1.rackcdn.com/unsplash_52be0803ecaec_1.JPG');
+  background-position: center;
+}
+
+.indexImg1:hover,
+.indexImg2:hover,
+.indexImg3:hover,
+.indexImg4:hover{
+  -webkit-filter: grayscale(100%);
+}
+
+// About Page Styling
+.about{
+  position: relative;
+  height: 70vh;
+  margin-top: 15px;
+}
+
+.shadow{
+
+}
+
+.aboutinfo{
+  height: 100%;
+  overflow: auto;
+  padding: 0 1.8em;
+  text-align: justify;
+  p{
+    margin: 1em 0;
+    line-height: 1.5em;
+    padding: 5px;
+    font-family: 'Bad Script', cursive;
+    // font-family: 'Calligraffitti', cursive;
+    letter-spacing: 0.1em;
+    font-size: 1.7em;
+    font-weight: 300;
+    color: #DDDCD8;
+    text-shadow: 3px 1px 2px rgba(2, 2, 2, 0.4);
+  }
+}
+
+.shadow:before, .shadow:after{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  -webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);
+  -moz-box-shadow:0 0 20px rgba(0,0,0,0.8);
+  box-shadow:0 0 20px rgba(0,0,0,0.8);
+  top:0;
+  bottom:0;
+  left:10px;
+  right:10px;
+  -moz-border-radius:100px / 10px;
+  border-radius:100px / 10px;
+}
+
+.shadow:after{
+  right:10px;
+  left:auto;
+  -webkit-transform:skew(8deg) rotate(3deg);
+  -moz-transform:skew(8deg) rotate(3deg);
+  -ms-transform:skew(8deg) rotate(3deg);
+  -o-transform:skew(8deg) rotate(3deg);
+  transform:skew(8deg) rotate(3deg);
+}
+
+.shadow  p{
+
+}
+
+// Show Page Styling
 
 .fotorama__wrap{
   margin: auto;
@@ -32,4 +154,13 @@ form > *{
 
 .deletepic{
   height: 100px;
+}
+
+.projectContain{
+  display: inline-block;
+  border: 1px dashed black;
+  margin: 20px;
+  img{
+    height: 150px;
+  }
 }

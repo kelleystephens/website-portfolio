@@ -15,7 +15,6 @@ exports.authenticate = (req, res)=>{
     }else{
       req.session.userId = null;
       res.redirect('/login');
-
     }
   });
 };
@@ -30,4 +29,12 @@ exports.lookup = (req, res, next)=>{
 exports.logout = (req, res)=>{
   req.session.userId = null;
   res.redirect('/portfolio');
+};
+
+exports.bounce = (req, res, next)=>{
+    if(res.locals.user){
+      next();
+    }else{
+      res.redirect('/');
+    }
 };

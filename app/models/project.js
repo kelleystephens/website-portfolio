@@ -7,9 +7,11 @@ var fs = require('fs');
 var Mongo = require('mongodb');
 var rimraf = require('rimraf');
 var _ = require('lodash');
+var counter = 1;
 
 
 class Project{
+
   constructor(fields, files, userId){
     this._id = Mongo.ObjectID();
     this.title = fields.title[0].trim();
@@ -20,6 +22,11 @@ class Project{
     this.tags = fields.tags[0].split(',').map(t=>t.toLowerCase()).map(t=>t.trim());
     this.userId = Mongo.ObjectID(userId);
     this.photos = [];
+    this.order = counter++;
+  }
+
+  isOwner(user){
+    return user._id.toString() === this.userId.toString();
   }
 
   update(obj, fn){
@@ -64,6 +71,9 @@ class Project{
   deletePic(img, fn){
     var newArray = this.photos.filter((p)=> p.path !== img);
     this.photos = newArray;
+    var path = `${__dirname}/../static${img}`;
+    fs.unlinkSync(path);
+    // rimraf.sync(path);
     projects.save(this, (e,p)=>fn(p));
   }
 
@@ -82,9 +92,12 @@ class Project{
   static findAndRemove(pId, fn){
     pId = Mongo.ObjectID(pId);
     projects.findAndRemove({_id:pId}, (e,p)=>{
-      var path = `${__dirname}/../static/img/${p.userId}/${p.title.toLowerCase().replace(/[^\w]/g, '')}`;
-      rimraf.sync(path);
-      fn();
+      var path = `${__dirname}/../static/img/${p.userId}/${this._id}`;
+      if(path){
+        rimraf(path, fn);
+      }else{
+        fn();
+      }
     });
   }
 }

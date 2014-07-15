@@ -2,6 +2,7 @@ extends ../shared/template
 
 block content
   h1 Portfolio
+
   #allProjects
     each project in projects
       .projectContain
@@ -15,7 +16,7 @@ block content
         each photo in project.photos
           if(photo.isPrimary)
             img.photo(src='#{photo.path}')
-        if(user && user.isOwner(project.userId))
+        if(user)
           form(action='/portfolio/delete/#{project._id}', method='POST',)
             input(type='hidden', name='_method', value='DELETE')
             button.delete.icon.icon-cross x

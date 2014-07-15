@@ -30,9 +30,12 @@ function load(app, fn){
   app.get('/logout', dbg, users.logout);
 
   app.get('/portfolio', dbg, portfolios.index);
-  app.post('/portfolio', dbg, portfolios.create);
   app.get('/portfolio/new', dbg, portfolios.new);
   app.get('/portfolio/:id', dbg, portfolios.show);
+
+  app.all('*', users.bounce);
+
+  app.post('/portfolio', dbg, portfolios.create);
   app.delete('/portfolio/delete/:id/photo', dbg, portfolios.removePic);
   app.delete('/portfolio/delete/:id', dbg, portfolios.remove);
   app.put('/portfolio/update/:id', dbg, portfolios.update);
