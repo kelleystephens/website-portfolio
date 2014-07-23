@@ -23,6 +23,6 @@ exports.contact = (req, res)=>{
 
 exports.contactRequest = (req, res)=>{
   User.sendContactRequest(req.body, name=>{
-    res.send(`Thank you #{name}! I will be in touch soon!`);
+    res.send(`Thank you ${name}! I will be in touch soon!`);
   });
 };

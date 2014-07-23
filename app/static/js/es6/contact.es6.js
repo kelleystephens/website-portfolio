@@ -20,7 +20,7 @@
       $('input[name=name]').empty();
       $('input[name=email]').empty();
       $('textarea[name=msg]').empty();
-      $('#overlay').append('<div>obj</div>');
+      $('#overlay').append(`<div>${obj}</div>`);
       $('#overlay').toggle('slow');
       $('#overlay').click(function(){
         $('#overlay').toggle('slow');
@@ -28,7 +28,7 @@
     });
   }
 
-  function ajax(url, type, data={}, success=r=>console.log(r), dataType='json'){
+  function ajax(url, type, data={}, success=r=>console.log(r), dataType='html'){
   $.ajax({url:url, type:type, dataType:dataType, data:data, success:success});
 }
 })();
