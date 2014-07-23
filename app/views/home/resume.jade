@@ -1,8 +1,127 @@
-extends ../shared/template
+//- extends ../shared/template
 
-block content
-  .pure-g
-    .pure-u-1
-      h1.name Kelley Stephens' Resume
-    .pure-u-1
-      .comingsoon Coming Soon!
+//- block content
+head
+  link(href='/less/resume.css', rel='stylesheet')
+body
+  //- #printPage
+  .left
+    .email
+      .icon
+      .info kelley.stephens@outlook.com
+    .phone
+      .icon
+      .info (615) 785-5595
+    .location
+      .icon
+      .info Nashville, TN
+    .website
+      .icon
+      .info www.KelleyStephens.com
+    .github
+      .icon
+      .info kelleystephens
+  .right
+    .header Kelley Stephens
+    .subHead Software Developer
+    .line
+    .tech { Technologies }
+    .hold
+      .front Front-End
+        div
+          icon.arrow: img(src='/../img/arrow-right.png')
+          .list Javascript
+        div
+          icon.arrow: img(src='/../img/arrow-right.png')
+          .list jQuery
+        div
+          icon.arrow: img(src='/../img/arrow-right.png')
+          .list AJAX
+        div
+          icon.arrow: img(src='/../img/arrow-right.png')
+          .list Grunt
+        div
+          icon.arrow: img(src='/../img/arrow-right.png')
+          .list HTML / Jade
+        div
+          icon.arrow: img(src='/../img/arrow-right.png')
+          .list CSS / Less
+        div
+          icon.arrow: img(src='/../img/arrow-right.png')
+          .list Bootstrap / Pure
+        div
+          icon.arrow: img(src='/../img/arrow-right.png')
+          .list Git/Github
+
+      .back Back-End
+        div
+          icon.arrow: img(src='/../img/arrow-right.png')
+          .list Javascript
+        div
+          icon.arrow: img(src='/../img/arrow-right.png')
+          .list Lodash
+        div
+          icon.arrow: img(src='/../img/arrow-right.png')
+          .list Node / NPM
+        div
+          icon.arrow: img(src='/../img/arrow-right.png')
+          .list Express
+        div
+          icon.arrow: img(src='/../img/arrow-right.png')
+          .list Mongo DB
+        div
+          icon.arrow: img(src='/../img/arrow-right.png')
+          .list Chai / Mocha
+        div
+          icon.arrow: img(src='/../img/arrow-right.png')
+          .list Ruby on Rails
+        div
+          icon.arrow: img(src='/../img/arrow-right.png')
+          .list RSpec / MiniTest
+    .education { Education }
+    .hold
+      .school Nashville Software School
+      .desc NSS is an intensive, hands-on 6 month program split into two courses - Javascript & Ruby.
+      .desc In the program, I completed over 30 apps, ranging from simple front-end to both front and back-end development, including a database. The projects were done both alone and in groups. Several of the apps are live on my website and the others can be viewed via Github.
+      .school Middle Tennessee State University
+      .desc BS in Marketing. BA in Spanish. 3.6 GPA.
+    .about { About Me }
+    .hold
+      .groups Groups
+        div
+          icon.arrow: img(src='/../img/arrow-right.png')
+          .list JS xTreme
+        div
+          icon.arrow: img(src='/../img/arrow-right.png')
+          .list NashJS
+        div
+          icon.arrow: img(src='/../img/arrow-right.png')
+          .list Nash.rb
+        div
+          icon.arrow: img(src='/../img/arrow-right.png')
+          .list PyNash
+
+      .recog Recognition
+        div
+          icon.arrow: img(src='/../img/arrow-right.png')
+          .list Hack for <br> Change:
+        div 2nd Place
+      .skills Attributes
+        div
+          icon.arrow: img(src='/../img/arrow-right.png')
+          .list Driven
+        div
+          icon.arrow: img(src='/../img/arrow-right.png')
+          .list Reliable
+        div
+          icon.arrow: img(src='/../img/arrow-right.png')
+          .list Detailed
+        div
+          icon.arrow: img(src='/../img/arrow-right.png')
+          .list Passionate
+
+  //- .pure-g
+  //-   .pure-u-1
+  //-     h1.name Kelley Stephens' Resume
+  //-   .pure-u-1
+  //-     .comingsoon Coming Soon!

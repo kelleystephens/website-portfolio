@@ -24,10 +24,12 @@ function load(app, fn){
   app.get('/about', dbg, home.about);
   app.get('/resume', dbg, home.resume);
   app.get('/contact', dbg, home.contact);
+  app.post('/contact/send', dbg, home.contactRequest);
 
   app.get('/login', dbg, users.login);
   app.post('/login', dbg, users.authenticate);
   app.get('/logout', dbg, users.logout);
+
 
   app.get('/portfolio', dbg, portfolios.index);
   app.get('/portfolio/new', dbg, portfolios.new);

@@ -4,3 +4,14 @@ block content
   .pure-g
     .pure-u-1
       h1.name Contact Kelley Stephens
+    .pure-u-1
+      form
+        input(name='name', type='text', placeholder='name')
+        input(name='email', type='email', placeholder='email')
+        textarea(name='msg')
+        button#submit(type='button') Send
+    .pure-u-1
+      #overlay
+
+block scripts
+  script(src='/js/es6/compiled/contact.js')

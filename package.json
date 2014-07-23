@@ -27,7 +27,8 @@
     "cookie-session":  "*",
     "cookies":         "*",
     "multiparty":      "*",
-    "rimraf":          "*"
+    "rimraf":          "*",
+    "request":         "*"
 
   },
   "devDependencies": {
