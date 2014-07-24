@@ -4,11 +4,24 @@
 
 html{
   background: #486966;
+  // background-image: url('/img/scribbles.png');
+}
+
+body::after{
+  background-image: url('/img/dots.png');
+  opacity: 0.1;
+  z-index: -1;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
 
 // Home Page Styling
 
-h1.name{
+.name{
   font-family: 'Lato', sans-serif;
   font-size: 2.7em;
   font-weight: 300;
@@ -68,55 +81,59 @@ h1.name{
 }
 
 // About Page Styling
-.about{
-  position: relative;
-  height: 70vh;
-  margin-top: 15px;
+
+.aboutpic{
+  background-image: url('/img/kelley-headshot.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 400px;
+  margin-top: 15vh;
 }
 
-.aboutinfo{
-  height: 100%;
-  overflow: auto;
-  padding: 0 1.8em;
+.abouthead{
+  letter-spacing: 1px;
+  line-height: 1.2em;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #fff;
+}
+
+.about, li {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.7em;
+  line-height: 1.1em;
+  letter-spacing: 1px;
   text-align: justify;
-  p{
-    margin: 1em 0;
-    line-height: 1.5em;
-    padding: 5px;
-    font-family: 'Bad Script', cursive;
-    // font-family: 'Calligraffitti', cursive;
-    letter-spacing: 0.1em;
-    font-size: 1.7em;
-    font-weight: 300;
-    color: #DDDCD8;
-    text-shadow: 3px 1px 2px rgba(2, 2, 2, 0.4);
-  }
+  font-weight: 300;
+  color: #DDDCD8;
+  text-shadow: 3px 1px 2px rgba(2, 2, 2, 0.4);
 }
 
-.shadow:before, .shadow:after{
-  content:"";
-  position:absolute;
-  z-index:-1;
-  -webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);
-  -moz-box-shadow:0 0 20px rgba(0,0,0,0.8);
-  box-shadow:0 0 20px rgba(0,0,0,0.8);
-  top:0;
-  bottom:0;
-  left:10px;
-  right:10px;
-  -moz-border-radius:100px / 10px;
-  border-radius:100px / 10px;
+.about{
+  padding-left: 10px;
 }
 
-.shadow:after{
-  right:10px;
-  left:auto;
-  -webkit-transform:skew(8deg) rotate(3deg);
-  -moz-transform:skew(8deg) rotate(3deg);
-  -ms-transform:skew(8deg) rotate(3deg);
-  -o-transform:skew(8deg) rotate(3deg);
-  transform:skew(8deg) rotate(3deg);
+li{
+  margin-bottom: 10px;
 }
+
+// .aboutinfo{
+//   height: 100%;
+//   overflow: auto;
+//   padding: 0 1.8em;
+//   text-align: justify;
+//   p{
+//     margin: 1em 0;
+//     line-height: 1.5em;
+//     padding: 5px;
+//     font-family: 'Bad Script', cursive;
+//     // font-family: 'Calligraffitti', cursive;
+//     letter-spacing: 0.1em;
+//     font-size: 1.7em;
+//     font-weight: 300;
+//     color: #DDDCD8;
+//     text-shadow: 3px 1px 2px rgba(2, 2, 2, 0.4);
+//   }
+// }
 
 // Resume Page Styling
 .comingsoon{
