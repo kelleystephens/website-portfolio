@@ -15,11 +15,9 @@
     var msg = $('textarea[name=msg]').val();
 
     ajax('/contact/send', 'post', {name:name, email:email, msg:msg}, obj =>{
-      console.log('********obj*****');
-      console.log(obj);
-      $('input[name=name]').empty();
-      $('input[name=email]').empty();
-      $('textarea[name=msg]').empty();
+      $('input[name=name]').val('');
+      $('input[name=email]').val('');
+      $('textarea[name=msg]').val('');
       $('#overlay').append(`<div>${obj}</div>`);
       $('#overlay').toggle('slow');
       $('#overlay').click(function(){

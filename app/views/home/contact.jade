@@ -5,11 +5,18 @@ block content
     .pure-u-1
       h1.name Contact Kelley Stephens
     .pure-u-1
-      form
-        input(name='name', type='text', placeholder='name')
-        input(name='email', type='email', placeholder='email')
-        textarea(name='msg')
-        button#submit(type='button') Send
+      form.cbp-mc-form
+        .pure-u-1.pure-u-md-1-2
+          label Name
+          input(type='text', name='name', placeholder='John Doe', autofocus=true)
+          label Email
+          input(type='email', name='email', placeholder='jdoe@email.com')
+        .pure-u-1.pure-u-md-1-2
+          label Additional Information
+          textarea(name='msg')
+        .pure-u-1
+          .cbp-mc-submit-wrap: input.cbp-mc-submit(value='Send')
+          //- button#submit(type='button') Send
     .pure-u-1
       #overlay
 
