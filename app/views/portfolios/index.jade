@@ -1,23 +1,27 @@
 extends ../shared/template
 
 block content
-  h1 Portfolio
-
-  #allProjects
-    each project in projects
-      .projectContain
-        a.title(href='/portfolio/#{project._id}' data-id='#{project._id}')= project.title
-        .description= project.description
-        .git= project.git
-        .app= project.app
-        -var date = moment(project.date).format('MM/DD/YYYY')
-        .date(data-date='#{date}')= date
-        .tags= project.tags
-        each photo in project.photos
-          if(photo.isPrimary)
-            img.photo(src='#{photo.path}')
-        if(user)
-          form(action='/portfolio/delete/#{project._id}', method='POST',)
-            input(type='hidden', name='_method', value='DELETE')
-            button.delete.icon.icon-cross x
-          button.edit Edit
+  .pure-g
+    .pure-u-1
+      h1.name Portfolio
+    .pure-u-1
+      #allProjects
+        each project in projects
+          .pure-u-1.pure-u-md-1-2
+            //- .projectContain
+            .title #{project.title}
+            .projectContain
+              div
+                icon.arrow: img(src='/../img/arrow-right.png')
+                a.app(href='#{project.app}') Check out the website!
+              div
+                icon.arrow: img(src='/../img/arrow-right.png')
+                a.git(href='#{project.git}') View the code
+              div
+                icon.arrow: img(src='/../img/arrow-right.png')
+                .description About:<br> #{project.description}
+            if(user)
+              form(action='/portfolio/delete/#{project._id}', method='POST',)
+                input(type='hidden', name='_method', value='DELETE')
+                button.delete.icon.icon-cross x
+              button.edit Edit

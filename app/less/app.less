@@ -4,7 +4,6 @@
 
 html{
   background: #486966;
-  // background-image: url('/img/scribbles.png');
 }
 
 body::after{
@@ -12,7 +11,7 @@ body::after{
   opacity: 0.1;
   z-index: -1;
   content: "";
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
@@ -88,6 +87,7 @@ body::after{
   background-repeat: no-repeat;
   height: 400px;
   margin-top: 15vh;
+  margin-left: 35px;
 }
 
 .abouthead{
@@ -97,7 +97,7 @@ body::after{
   border-bottom: 2px solid #fff;
 }
 
-.about, li {
+.about, .facts {
   font-family: 'Lato', sans-serif;
   font-size: 1.7em;
   line-height: 1.1em;
@@ -116,44 +116,18 @@ li{
   margin-bottom: 10px;
 }
 
-// .aboutinfo{
-//   height: 100%;
-//   overflow: auto;
-//   padding: 0 1.8em;
-//   text-align: justify;
-//   p{
-//     margin: 1em 0;
-//     line-height: 1.5em;
-//     padding: 5px;
-//     font-family: 'Bad Script', cursive;
-//     // font-family: 'Calligraffitti', cursive;
-//     letter-spacing: 0.1em;
-//     font-size: 1.7em;
-//     font-weight: 300;
-//     color: #DDDCD8;
-//     text-shadow: 3px 1px 2px rgba(2, 2, 2, 0.4);
-//   }
-// }
-
-// Resume Page Styling
-.comingsoon{
-  margin-top: 10%;
-  font-family: 'Lato', sans-serif;
-  font-size: 4.7em;
-  font-weight: 300;
-  color: #B6686B;
-  text-shadow: 3px 1px 2px rgba(2, 2, 2, 0.4);
-}
 
 // Show Page Styling
 
-.fotorama__wrap{
-  margin: auto;
-}
+// .fotorama__wrap{
+//   margin: auto;
+// }
+//
+// .fotorama__pointer{
+//   box-shadow: 3px 3px 4px grey;
+// }
+//
 
-.fotorama__pointer{
-  box-shadow: 3px 3px 4px grey;
-}
 
 .container{
   text-align: center;
@@ -161,27 +135,65 @@ li{
   margin-top: 20px;
   padding: 10px;
   line-height: 25px;
-  .git, .app{
-    display: inline-block;
-    margin: auto 10px;
-  }
 }
 
 form > *{
   color: black !important;
 }
 
+// Portfolio Page Styling
+
 .deletepic{
   height: 100px;
 }
 
 .projectContain{
-  display: inline-block;
-  border: 1px dashed black;
-  margin: 20px;
-  img{
-    height: 150px;
+  padding: 10px;
+  width: 85%;
+  height: 265px;
+  overflow: auto;
+  margin: 15px auto;
+  border: 3px solid #fff;
+  background: #486966;
+  div{
+    text-align: justify;
+    icon{
+      float: left;
+    }
+    img{
+      width: 16px;
+      margin-right: 7px;
+    }
   }
+}
+
+.title, .description, .git, .app, .date{
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  letter-spacing: .09em;
+}
+
+.title{
+  font-size: 1.8em;
+  color: #B6686B;
+  text-shadow: 3px 1px 2px rgba(2, 2, 2, 0.4);
+  margin-bottom: 10px;
+}
+
+.description, .git, .app, .date{
+  font-size: 1.2em;
+  color: #DDDCD8;
+  text-shadow: 2px 1px 2px rgba(2, 2, 2, 0.4);
+  text-align: justify;
+  margin-bottom: 5px;
+  a:hover{
+    color: #B6686B;
+  }
+}
+
+.description{
+  display: inline-block;
+  width: 95%;
 }
 
 // Contact Page Styling
@@ -254,7 +266,7 @@ form > *{
 	display: block;
 	width: 90%;
   margin: auto;
-	background: transparent;
+	background: #486966;
 }
 
 .cbp-mc-form input,
