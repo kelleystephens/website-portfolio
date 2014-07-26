@@ -37,7 +37,7 @@ function load(app, fn){
 
   app.all('*', users.bounce);
 
-  app.post('/portfolio', dbg, portfolios.create);
+  app.post('/portfolio/create', dbg, portfolios.create);
   app.delete('/portfolio/delete/:id/photo', dbg, portfolios.removePic);
   app.delete('/portfolio/delete/:id', dbg, portfolios.remove);
   app.put('/portfolio/update/:id', dbg, portfolios.update);

@@ -1,11 +1,18 @@
 extends ../shared/template
 
 block content
-  h1 New Project
-
-  form(action='/portfolio', method='post')
-    input(type='text', name='title', autofocus=true, placeholder='Title')
-    textarea(name='description', placeholder='Description')
-    input(type='text', name='app', placeholder='App URL')
-    input(type='text', name='git', placeholder='Git Repo')
-    button Add Project
+  .pure-u-1
+    h1.name New Project
+  .pure-u-1
+    form.cbp-mc-form(action='/portfolio/create', method='post')
+      .pure-u-1.pure-u-md-1-2
+        label Title
+        input(type='text', name='title', placeholder='Title')
+        label App URL
+        input(type='text', name='app', placeholder='www.example.com')
+        label Github Repo
+        input(type='text', name='git', placeholder='www.github.com/example')
+      .pure-u-1.pure-u-md-1-2
+        label Description
+        textarea(name='description', placeholder='More info')
+        div.cbp-mc-submit-wrap: input.cbp-mc-submit(type='submit' value='Add Project')

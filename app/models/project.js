@@ -7,19 +7,17 @@ var fs = require('fs');
 var Mongo = require('mongodb');
 var rimraf = require('rimraf');
 var _ = require('lodash');
-var counter = 1;
 
 
 class Project{
 
   static create(obj, userId, fn){
     var project = new Project();
-    project.title = obj.title[0].trim();
-    project.description = obj.description[0].trim();
-    project.git = obj.git[0].trim();
-    project.app = obj.app[0].trim();
+    project.title = obj.title;
+    project.description = obj.description;
+    project.git = obj.git;
+    project.app = obj.app;
     project.userId = Mongo.ObjectID(userId);
-    project.order = counter++;
     projects.save(project, ()=>fn());
   }
 
@@ -28,12 +26,10 @@ class Project{
   }
 
   update(obj, fn){
-    console.log('*****model****');
-    console.log(obj);
-    this.title = obj.title.trim();
-    this.description = obj.description.trim();
-    this.git = obj.git.trim();
-    this.app = obj.app.trim();
+    this.title = obj.title;
+    this.description = obj.description;
+    this.git = obj.git;
+    this.app = obj.app;
 
     projects.save(this, (e,p)=>fn(p));
   }
@@ -53,12 +49,7 @@ class Project{
   static findAndRemove(pId, fn){
     pId = Mongo.ObjectID(pId);
     projects.findAndRemove({_id:pId}, (e,p)=>{
-      var path = `${__dirname}/../static/img/${p.userId}/${this._id}`;
-      if(path){
-        rimraf(path, fn);
-      }else{
-        fn();
-      }
+      fn();
     });
   }
 }

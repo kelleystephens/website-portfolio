@@ -1,8 +1,14 @@
 extends ../shared/template
 
 block content
-
-  form(action='/login', method='post')
-    input(type='email', autofocus=true, placeholder='Email Address', name='email')
-    input(type='password', placeholder='Password', name='password')
-    button Login
+  .pure-u-1
+    h1.name Login
+  form.cbp-mc-form(action='/login', method='post')
+    .pure-u-1.pure-u-md-1-2
+      label Email
+      input(type='email', placeholder='john@example.com', name='email')
+    .pure-u-1.pure-u-md-1-2
+      label Password
+      input(type='password', placeholder='example1', name='password')
+    .pure-u-1
+      div.cbp-mc-submit-wrap: input.cbp-mc-submit(type='submit' value='Login')
