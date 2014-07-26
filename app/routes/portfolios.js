@@ -36,8 +36,13 @@ exports.remove = (req, res)=>{
 };
 
 exports.update = (req, res)=>{
+  console.log('*****here****');
   Project.findById(req.params.id, project=>{
+    console.log('*****project****');
+    console.log(project);
     project.update(req.body, p=>{
+      console.log('*****route****');
+      console.log(p);
       res.send({msg: 'update complete'});
     });
   });

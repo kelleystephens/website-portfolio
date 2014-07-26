@@ -28,6 +28,8 @@ class Project{
   }
 
   update(obj, fn){
+    console.log('*****model****');
+    console.log(obj);
     this.title = obj.title.trim();
     this.description = obj.description.trim();
     this.git = obj.git.trim();

@@ -18,15 +18,15 @@
 
   function editProject(){
     var title = $(this).siblings('.title').text();
-    var description = $(this).siblings('.projectContain > div > .description').text();
-    var git = $(this).siblings('.projectContain > div > .git').text();
-    var app = $(this).siblings('.projectContain > div > .app').text();
+    var description = $(this).siblings('.projectContain').children().children('.description').text();
+    var git = $(this).siblings('.projectContain').children().children('.git').text();
+    var app = $(this).siblings('.projectContain').children().children('.app').text();
     var id = $(this).siblings('.title').data('id');
 
     $(this).siblings('.title').replaceWith(`<input name='title' data-id=${id} value='${title}'></input>`);
-    $(this).siblings('.projectContain > div > .description').replaceWith(`<textarea name='description'>${description}</textarea>`);
-    $(this).siblings('.projectContain > div > .git').replaceWith(`<input name='git' value='${git}'></input>`);
-    $(this).siblings('.projectContain > div > .app').replaceWith(`<input name='app' value='${app}'></input>`);
+    $(this).siblings('.projectContain').children().children('.description').replaceWith(`<textarea name='description'>${description}</textarea>`);
+    $(this).siblings('.projectContain').children().children('.git').replaceWith(`<input name='git' value='${git}'></input>`);
+    $(this).siblings('.projectContain').children().children('.app').replaceWith(`<input name='app' value='${app}'></input>`);
     $('.projectContain').append('<button class="save">Save</button>');
   }
 
