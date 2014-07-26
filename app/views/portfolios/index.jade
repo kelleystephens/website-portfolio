@@ -8,8 +8,7 @@ block content
       #allProjects
         each project in projects
           .pure-u-1.pure-u-md-1-2
-            //- .projectContain
-            .title #{project.title}
+            .title(data-id=`#{project._id}`) #{project.title}
             .projectContain
               div
                 icon.arrow: img(src='/../img/arrow-right.png')
@@ -20,8 +19,8 @@ block content
               div
                 icon.arrow: img(src='/../img/arrow-right.png')
                 .description About:<br> #{project.description}
-            if(user)
-              form(action='/portfolio/delete/#{project._id}', method='POST',)
-                input(type='hidden', name='_method', value='DELETE')
-                button.delete.icon.icon-cross x
-              button.edit Edit
+          if(user)
+            form(action='/portfolio/delete/#{project._id}', method='POST',)
+              input(type='hidden', name='_method', value='DELETE')
+              button.delete.icon.icon-cross x
+            button.edit Edit

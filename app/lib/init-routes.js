@@ -39,7 +39,7 @@ function load(app, fn){
 
   app.post('/portfolio', dbg, portfolios.create);
   app.delete('/portfolio/delete/:id/photo', dbg, portfolios.removePic);
-  app.delete('/portfolio/delete/:id', dbg, portfolios.remove);
+  app.post('/portfolio/delete/:id', dbg, portfolios.remove);
   app.put('/portfolio/update/:id', dbg, portfolios.update);
   app.put('/portfolio/:id/photo/primary', dbg, portfolios.makePrimary);
   app.post('/portfolio/add/:id/photo', dbg, portfolios.addPic);

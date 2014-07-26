@@ -3,12 +3,9 @@ extends ../shared/template
 block content
   h1 New Project
 
-  form(action='/portfolio', method='post', enctype='multipart/form-data')
+  form(action='/portfolio', method='post')
     input(type='text', name='title', autofocus=true, placeholder='Title')
     textarea(name='description', placeholder='Description')
-    input(type='date', name='date')
     input(type='text', name='app', placeholder='App URL')
     input(type='text', name='git', placeholder='Git Repo')
-    input(type='text', name='tags', placeholder='Tags')
-    input(type='file', name='photo', multiple=true)
     button Add Project

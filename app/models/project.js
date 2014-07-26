@@ -12,17 +12,15 @@ var counter = 1;
 
 class Project{
 
-  constructor(fields, files, userId){
-    this._id = Mongo.ObjectID();
-    this.title = fields.title[0].trim();
-    this.description = fields.description[0].trim();
-    this.git = fields.git[0].trim();
-    this.app = fields.app[0].trim();
-    this.date = new Date(fields.date[0]);
-    this.tags = fields.tags[0].split(',').map(t=>t.toLowerCase()).map(t=>t.trim());
-    this.userId = Mongo.ObjectID(userId);
-    this.photos = [];
-    this.order = counter++;
+  static create(obj, userId, fn){
+    var project = new Project();
+    project.title = obj.title[0].trim();
+    project.description = obj.description[0].trim();
+    project.git = obj.git[0].trim();
+    project.app = obj.app[0].trim();
+    project.userId = Mongo.ObjectID(userId);
+    project.order = counter++;
+    projects.save(project, ()=>fn());
   }
 
   isOwner(user){
@@ -34,46 +32,7 @@ class Project{
     this.description = obj.description.trim();
     this.git = obj.git.trim();
     this.app = obj.app.trim();
-    this.date = new Date(obj.date);
-    this.tags = obj.tags.map(t=>t.toLowerCase());
 
-    projects.save(this, (e,p)=>fn(p));
-  }
-
-  new(pics, fn){
-    pics.forEach(p=>{
-      var fileName = p.originalFilename.toLowerCase().replace(/[^\w]/g, '');
-      this.photos.push({path:`/img/${this.userId}/${this._id}/${fileName}`, isPrimary: false});
-      var oldPath = p.path;
-      var newPath = `${__dirname}/../static/img/${this.userId}/${this._id}/${fileName}`;
-      var idDir = `${__dirname}/../static/img/${this.userId}`;
-      var titleDir = `${__dirname}/../static/img/${this.userId}/${this._id}`;
-
-      if(!fs.existsSync(idDir)){fs.mkdirSync(idDir);}
-      if(!fs.existsSync(titleDir)){fs.mkdirSync(titleDir);}
-
-      fs.renameSync(oldPath, newPath);
-    });
-      projects.save(this, (e, p)=>fn(p));
-  }
-
-  setPrimary(path, fn){
-    this.photos.forEach((p, i)=>{
-      if(p.path === path){
-        this.photos[i].isPrimary = true;
-      }else{
-        this.photos[i].isPrimary = false;
-      }
-    });
-    projects.save(this, (e,p)=>fn(p));
-  }
-
-  deletePic(img, fn){
-    var newArray = this.photos.filter((p)=> p.path !== img);
-    this.photos = newArray;
-    var path = `${__dirname}/../static${img}`;
-    fs.unlinkSync(path);
-    // rimraf.sync(path);
     projects.save(this, (e,p)=>fn(p));
   }
 

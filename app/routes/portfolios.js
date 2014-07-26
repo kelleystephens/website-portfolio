@@ -18,13 +18,8 @@ exports.new = (req, res)=>{
 
 
 exports.create = (req, res)=>{
-    var form = new multiparty.Form();  //this is just how you use multiparty to pull pics
-
-  form.parse(req, (err, fields, files)=>{    //req is object that came from the browser, files are the pics, fields are where the other inputs are
-    var project = new Project(fields, files, req.session.userId);
-    project.new(files.photo, p=>{
-      res.redirect(`/portfolio/${project._id}`);
-    });
+  Project.create(req.body, req.session.userId, ()=>{
+    res.redirect('/portfolio');
   });
 };
 

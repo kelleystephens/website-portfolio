@@ -18,20 +18,15 @@
 
   function editProject(){
     var title = $(this).siblings('.title').text();
-    var description = $(this).siblings('.description').text();
-    var git = $(this).siblings('.git').text();
-    var app = $(this).siblings('.app').text();
-    var date = $(this).siblings('.date').data('date');
-    date = moment(date).format('YYYY-MM-DD');
-    var tags = $(this).siblings('.tags').text();
+    var description = $(this).siblings('.projectContain > div > .description').text();
+    var git = $(this).siblings('.projectContain > div > .git').text();
+    var app = $(this).siblings('.projectContain > div > .app').text();
     var id = $(this).siblings('.title').data('id');
 
     $(this).siblings('.title').replaceWith(`<input name='title' data-id=${id} value='${title}'></input>`);
-    $(this).siblings('.description').replaceWith(`<textarea name='description'>${description}</textarea>`);
-    $(this).siblings('.git').replaceWith(`<input name='git' value='${git}'></input>`);
-    $(this).siblings('.app').replaceWith(`<input name='app' value='${app}'></input>`);
-    $(this).siblings('.date').replaceWith(`<input type='date' name='date' value='${date}'></input>`);
-    $(this).siblings('.tags').replaceWith(`<input name='tags' value='${tags}'></input>`);
+    $(this).siblings('.projectContain > div > .description').replaceWith(`<textarea name='description'>${description}</textarea>`);
+    $(this).siblings('.projectContain > div > .git').replaceWith(`<input name='git' value='${git}'></input>`);
+    $(this).siblings('.projectContain > div > .app').replaceWith(`<input name='app' value='${app}'></input>`);
     $('.projectContain').append('<button class="save">Save</button>');
   }
 
@@ -41,10 +36,8 @@
     var description = $('textarea[name=description]').val();
     var git = $('input[name=git]').val();
     var app = $('input[name=app]').val();
-    var date = $('input[name=date]').val();
-    var tags = $('input[name=tags]').val().split(',').map(t=>t.trim());
 
-    ajax(`/portfolio/update/${projId}`, 'put', {title:title, description:description, git:git, app:app, date:date, tags:tags}, obj =>{
+    ajax(`/portfolio/update/${projId}`, 'put', {title:title, description:description, git:git, app:app}, obj =>{
       console.log(obj);
       window.location= '/portfolio';
     });
