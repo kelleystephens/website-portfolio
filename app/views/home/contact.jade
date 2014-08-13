@@ -5,7 +5,7 @@ block content
     .pure-u-1
       h1.name Contact Kelley Stephens
     .pure-u-1
-      form.cbp-mc-form(action='/contact/send', method='post')
+      form.cbp-mc-form
         .pure-u-1.pure-u-md-1-2
           label Name
           input(type='text', name='name', placeholder='John Doe')
@@ -15,7 +15,7 @@ block content
           label Additional Information
           textarea(name='msg')
         .pure-u-1
-          .cbp-mc-submit-wrap: input.cbp-mc-submit(value='Send')
+          #submit.cbp-mc-submit-wrap: input.cbp-mc-submit(value='Send')
     .pure-u-1
       #overlay
 
