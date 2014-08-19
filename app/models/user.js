@@ -46,7 +46,6 @@ function sendEmail(name, email, message, fn){
   form.append('to', 'kelley.stephens@outlook.com');
   form.append('subject', `Contact Request from ${name}`);
   form.append('html', `<b>Name:</b> ${name}<br> <b>Email:</b> ${email}<br> <b>Message:</b> ${message}`);
-  form.append('o:testmode', 'true');
 }
 
 module.exports = User;
