@@ -4,6 +4,75 @@ block content
   head
     link(href='/less/resume.css', rel='stylesheet')
   body
-    .pure-g
-      .pure-u-1.photo-box
-        .resume.pure-img
+    .pure-g.holder
+      .pure-u-1.header
+        .pure-u-1.pure-u-sm-1-2
+          img.pure-img.phone_img(src='/img/phone2.svg', alt="Kelley Stephen's Phone Number")
+          h3.phone (615) 785-5595
+        .pure-u-1.pure-u-sm-1-2
+          img.pure-img.email_img(src='/img/envelope-o.svg', alt="Kelley Stephen's Email")
+          h3.email kelley@kelleystephens.com
+      .pure-u-1.body
+        .pure-u-1.pure-u-sm-1-3
+          .edu
+            a(href='#modal1' class='title') { Education & Experience }
+            #modal1
+              .modal-content
+                .modal-header
+                  h2 { Education & Experience }
+                .modal-body
+                  h3 Nashville Software School
+                  ul
+                    li Description: NSS is a six month, intensive, bootcamp-style program that is split into two three month courses, JavaScript and Ruby. I have completed over 30 apps, done both alone and in groups. They can be viewed on my Github.
+                    li JavaScript Course: Learned both front and back-end JS, using technologies such as jQuery, AJAX, JSON, Grunt, Jade, Less/CSS, Git Version Control, Twitter Bootstrap/Pure, Node/NPM, Express, MongoDB, & TDD with Chai & Mocha. My capstone project was an app called BlockParty. Check it out at blockparty.kelleystephens.com.
+                    li Ruby Course: I am currently working through the Ruby portion of the program. We have used RSpec and MiniTest for test driven development, PostgreSQL for database management and are currently learning Rails and all it has to oﬀer.
+                  h3 Middle Tennessee State University
+                  ul
+                    li Bachelors of Business Administration in Marketing
+                    li Bachelors of Arts in Spanish
+                    li GPA: 3.6
+                .modal-footer
+                  a(href='#' class='close') Close
+              .overlay
+        .pure-u-1.pure-u-sm-1-3
+          .work
+            a(href='#modal2' class='title') { Work Experience }
+            #modal2
+              .modal-content
+                .modal-header
+                  h2 { Work Experience }
+                .modal-body
+                  h3 Holland Square Group
+                  ul
+                    li Promoted within 6 months from Operations Assistant to Operations Administrator.
+                    li Organized & coordinated the ﬁrst annual Nerds of Rock event.
+                    li Trained new Operations team members.
+                    li Maintained operational support for 80+ consultants.
+                  h3 The Switch
+                  ul
+                    li Promoted within 6 months from Brand Ambassador to Senior Brand Ambassador and Grid Lead.
+                    li Designed and implemented a grid system for all Nashville teams.
+                .modal-footer
+                  a(href='#' class='close') Close
+              .overlay
+        .pure-u-1.pure-u-sm-1-3
+          .accomp
+            a(href='#modal3' class='title') { Accomplishments & Activities }
+            #modal3
+              .modal-content
+                .modal-header
+                  h2 { Accomplishments & Activities }
+                .modal-body
+                  ul
+                    li Won 2nd place at Hack 4 Change Nashville. Check it out at <a href='iTNerary.kelleystephens.com' class='link'>iTNerary.kelleystephens.com</a>.
+                    li Active member of JS xTreme, NashJS, Nash.rb, Ruby on Rails for Beginners, PyNash and Girl Geek Dinners.
+                .modal-footer
+                  a(href='#' class='close') Close
+              .overlay
+      .pure-u-1.footer
+        .pure-u-1.pure-u-sm-1-2
+          img.pure-img.twitter_img(src='/img/twitter.svg', alt="Kelley Stephen's Twitter")
+          h3.twitter twitter.com/kelleycan
+        .pure-u-1.pure-u-sm-1-2
+          img.pure-img.gh_img(src='/img/github-square.svg', alt="Kelley Stephen's Github")
+          h3.github github.com/kelleystephens

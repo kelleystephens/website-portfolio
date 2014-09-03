@@ -1,9 +1,4 @@
-Server Template
+My Personal Website
 ===============
 
-- Node.js
-- Express
-- MongoDB
-- Traceur
-- Jade
-- Less
+## Check out my website to see more information about me

@@ -435,6 +435,10 @@
 		background: none;
 	}
 
+	.morph-button > button > .icon-list:before {
+		color: #B6686B;
+	}
+
 	.morph-button-sidebar {
 		top: 1px;
 		left: 1px;
@@ -455,6 +459,10 @@
 @media screen and (max-width: 400px) {
 	.morph-button > button {
 		background: none;
+	}
+
+	.morph-button > button > .icon-list:before {
+		color: #B6686B;
 	}
 
 	.morph-button-fixed,
